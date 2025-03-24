@@ -12,10 +12,10 @@ app.use((req, res, next) => {
 
 const client = new OpenAI({
     apiKey: process.env.XAI_API_KEY,
-    baseURL: 'https://api.x.ai/v1', // Fixed to baseURL
+    baseURL: 'https://api.x.ai/v1',
 });
 
-app.post('/api/horoscope', async (req, res) => {
+app.post('/', async (req, res) => {  // Changed to '/'
     try {
         const prompt = req.body.prompt;
         if (!prompt) {
@@ -23,7 +23,7 @@ app.post('/api/horoscope', async (req, res) => {
         }
 
         const completion = await client.chat.completions.create({
-            model: 'grok-2-latest', // Try 'grok' if this fails
+            model: 'grok-2-latest',
             messages: [
                 { role: 'system', content: 'You are a cosmic guide providing detailed horoscopes.' },
                 { role: 'user', content: prompt }
@@ -40,5 +40,4 @@ app.post('/api/horoscope', async (req, res) => {
     }
 });
 
-// Export the app for Vercel, remove app.listen()
 module.exports = app;
