@@ -15,7 +15,7 @@ const client = new OpenAI({
     baseURL: 'https://api.x.ai/v1',
 });
 
-app.post('/', async (req, res) => {  // Changed to '/'
+app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt;
         if (!prompt) {
@@ -40,4 +40,4 @@ app.post('/', async (req, res) => {  // Changed to '/'
     }
 });
 
-module.exports = app;// Trigger update
+module.exports = app;
