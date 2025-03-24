@@ -1,7 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "index.js": {
+    "api/index.js": {  // Updated path
       "memory": 1024,
       "maxDuration": 10
     }
@@ -10,7 +10,7 @@
     {
       "src": "/api/horoscope",
       "methods": ["POST", "OPTIONS"],
-      "dest": "index.js"
+      "dest": "api/index.js"  // Updated path
     }
   ],
   "headers": [
