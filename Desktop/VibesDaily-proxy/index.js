@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 
 const client = new OpenAI({
     apiKey: process.env.XAI_API_KEY,
-    baseUrl: 'https://api.x.ai/v1',
+    baseURL: 'https://api.x.ai/v1', // Fixed to baseURL
 });
 
 app.post('/api/horoscope', async (req, res) => {
@@ -23,7 +23,7 @@ app.post('/api/horoscope', async (req, res) => {
         }
 
         const completion = await client.chat.completions.create({
-            model: 'grok-2-latest',
+            model: 'grok-2-latest', // Try 'grok' if this fails
             messages: [
                 { role: 'system', content: 'You are a cosmic guide providing detailed horoscopes.' },
                 { role: 'user', content: prompt }
@@ -40,5 +40,5 @@ app.post('/api/horoscope', async (req, res) => {
     }
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Running on port ${port}`)); 
+// Export the app for Vercel, remove app.listen()
+module.exports = app;
