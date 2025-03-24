@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.js": {  // Updated path
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/horoscope",
+      "methods": ["POST", "OPTIONS"],
+      "dest": "api/index.js"  // Updated path
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/horoscope",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Origin, X-Requested-With, Content-Type, Accept" }
+      ]
+    }
+  ]
+}
