@@ -1,7 +1,9 @@
+cd /Users/user/Desktop/VibesDaily-proxy
+cat > vercel.json << 'EOF'
 {
   "version": 2,
   "functions": {
-    "api/index.js": {  // Updated path
+    "api/index.js": {
       "memory": 1024,
       "maxDuration": 10
     }
@@ -10,7 +12,7 @@
     {
       "src": "/api/horoscope",
       "methods": ["POST", "OPTIONS"],
-      "dest": "api/index.js"  // Updated path
+      "dest": "api/index.js"
     }
   ],
   "headers": [
@@ -24,3 +26,4 @@
     }
   ]
 }
+EOF
