@@ -1,5 +1,4 @@
-cd /Users/user/Desktop/VibesDaily-proxy
-cat > vercel.json << 'EOF'
+
 {
   "version": 2,
   "functions": {
@@ -26,4 +25,3 @@ cat > vercel.json << 'EOF'
     }
   ]
 }
-EOF
